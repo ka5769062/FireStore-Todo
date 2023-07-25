@@ -87,21 +87,22 @@ async function savMsg(enterData) {
 
 let display = document.querySelector(".getingData")
 
-
+getData()
 async function getData() {
-  
+    display.innerHTML = null
+
   const querySnapshot = await getDocs(collection(db, "users"));
   querySnapshot.forEach((doc) => {
     
-    let frst = `<div>${doc.data().first}<div>`
+    let frst = `<div>${doc.data().first}</div>`
    
     display.innerHTML += frst
     //  renderData()   
     
-    console.log(display)
     
   })
 
+  console.log(display)
 
 };
 
@@ -111,6 +112,5 @@ async function getData() {
 // setTimeout(() => {
   
 // }, 3000);
-
 
 
